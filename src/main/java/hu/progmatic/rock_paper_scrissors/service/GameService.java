@@ -7,5 +7,6 @@ public interface GameService {
     String getUserChoice();
     void display(String userChoice,String computerChoice,String result);
     GameResult determineWinner(GameElement userChoice,GameElement computerChoice);
+    GameElement generateComputerChoice();
 
 }

@@ -32,7 +32,8 @@ public class BasicGameService implements GameService {
         }
     }
 
-    private GameElement generateComputerChoice() {
+    @Override
+    public GameElement generateComputerChoice() {
         Random random = new Random();
         int randomIndex = random.nextInt(GameElement.values().length);
         return GameElement.values()[randomIndex];

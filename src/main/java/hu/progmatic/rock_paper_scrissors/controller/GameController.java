@@ -1,5 +1,7 @@
 package hu.progmatic.rock_paper_scrissors.controller;
 
+import hu.progmatic.rock_paper_scrissors.model.GameElement;
+import hu.progmatic.rock_paper_scrissors.model.GameResult;
 import hu.progmatic.rock_paper_scrissors.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,17 +14,24 @@ public class GameController {
     private final GameService basicGameService;
 
     @GetMapping("/play")
-    public String getHome(){
+    public String getHome() {
         return "home";
     }
 
     @Autowired
     public GameController(
-            GameService basicGameService){
+            GameService basicGameService) {
         this.basicGameService = basicGameService;
     }
-    @PostMapping("/play")
-    public String playGame(String userChoice, Model model){
 
+    @PostMapping("/play")
+    public String playGame(String userChoice, Model model) {
+        GameElement userElement = GameElement.valueOf(userChoice);
+        GameElement computerElement = basicGameService.generateComputerChoice();
+        GameResult gameResult = basicGameService.determineWinner(userElement, computerElement);
+        model.addAttribute("userChoice", userElement.getDisplayName());
+        model.addAttribute("computerChoice", computerElement.getDisplayName());
+        model.addAttribute("result", gameResult.getMessage());
+        return "redirect:/result";
     }
 }
