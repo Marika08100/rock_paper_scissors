@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class GameController {
     private final GameService basicGameService;
 
-    @GetMapping("/play")
+    @GetMapping("/home")
     public String getHome() {
         return "home";
     }

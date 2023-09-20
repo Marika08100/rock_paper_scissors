@@ -5,7 +5,16 @@
     <title>RPS</title>
 </head>
 <body>
-<h1> Welcome in the GameWorld! </h1>
+<h1> Kő-Papír-Olló Játék </h1>
+<form action="/home" method="post">
+    <label for="userChoice">Válaszd ki a lehetőséged:</label>
+    <select name="userChoice" id="userChoice">
+        <option value="ROCK">Kő</option>
+        <option value="PAPER">Papír</option>
+        <option value="SCISSORS">Olló</option>
+    </select>
+    <button type="submit">Játék</button>
+</form>
 
 </body>
 </html>
