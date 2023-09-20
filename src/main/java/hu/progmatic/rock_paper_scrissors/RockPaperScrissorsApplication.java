@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RockPaperScrissorsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RockPaperScrissorsApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RockPaperScrissorsApplication.class, args);
+    }
 
 }
