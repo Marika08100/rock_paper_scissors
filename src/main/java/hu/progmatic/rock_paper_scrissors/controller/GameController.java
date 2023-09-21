@@ -17,6 +17,7 @@ import static hu.progmatic.rock_paper_scrissors.model.GameElement.valueOf;
 public class GameController {
     private final GameService basicGameService;
 
+
     @GetMapping("/home")
     public String getHome() {
         return "home";
