@@ -12,8 +12,8 @@ public class BasicGameService implements GameService {
 
 
     @Override
-    public String getUserChoice() {
-        return "rock";
+    public GameElement getUserChoice() {
+        return GameElement.ROCK;
     }
 
     @Override

@@ -29,8 +29,8 @@ public class GameController {
     }
 
     @GetMapping("/result")
-    public String showResult(Model model, String userChoice) {
-        GameElement userElement = GameElement.valueOf(userChoice);
+    public String showResult(Model model) {
+        GameElement userElement = basicGameService.getUserChoice();
         GameElement computerElement = basicGameService.generateComputerChoice();
         GameResult gameResult = basicGameService.determineWinner(userElement, computerElement);
         model.addAttribute("userChoice", userElement.getDisplayName());
