@@ -6,10 +6,9 @@
 </head>
 <body>
 <h1>Játék Eredmény</h1>
-<p>Felhasználó választása:  th:text="${userChoice}"></p>
-<p>Számítógép választása: th:text="${computerChoice}"></p>
-<p>Eredmény:  th:text="${result}"</p>
-<a th:href="/play">Új játék</a>
-
+<p>Felhasználó választása: <span th:text="${userChoice}"></span></p>
+<p>Számítógép választása: <span th:text="${computerChoice}"></span></p>
+<p>Eredmény: <span th:text="${result}"></span></p>
+<a th:href="@{/play}">Új játék</a>
 </body>
 </html>

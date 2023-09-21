@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>RPS</title>
+    <style>
+        .game-button {
+            background-size: cover;
+            width: 200px;
+            height: 200px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<h1> Kő-Papír-Olló Játék </h1>
-<form action="/home" method="post">
-    <label for="userChoice">Válaszd ki a lehetőséged:</label>
-    <select name="userChoice" id="userChoice">
-        <option value="ROCK">Kő</option>
-        <option value="PAPER">Papír</option>
-        <option value="SCISSORS">Olló</option>
-    </select>
-    <button type="submit">Játék</button>
+<h1>Kő-Papír-Olló Játék</h1>
+<form action="/play" method="post">
+    <label>Válassz egy lehetőséget:</label>
+    <button class="game-button" type="submit" name="userChoice" value="ROCK" style="background-image: url('https://nationaltoday.com/wp-content/uploads/2021/08/National-Pet-Rock-Day.jpg');"></button>
+    <button class="game-button" type="submit" name="userChoice" value="PAPER" style="background-image: url('https://c02.purpledshub.com/uploads/sites/41/2019/09/GettyImages-1128879610-c-fbbc77f.jpg');"></button>
+    <button class="game-button" type="submit" name="userChoice" value="SCISSORS" style="background-image: url('https://www.shutterstock.com/image-vector/scissors-icon-600w-337423679.jpg');"></button>
 </form>
-
 </body>
 </html>
