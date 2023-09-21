@@ -9,4 +9,5 @@ public interface GameService {
     GameResult determineWinner(GameElement userChoice,GameElement computerChoice);
     GameElement generateComputerChoice();
 
+    void setUserChoice(GameElement userElement);
 }

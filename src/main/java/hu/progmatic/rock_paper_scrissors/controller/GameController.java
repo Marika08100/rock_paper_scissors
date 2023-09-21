@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import static hu.progmatic.rock_paper_scrissors.model.GameElement.valueOf;
+
 @Controller
 public class GameController {
     private final GameService basicGameService;
@@ -39,6 +41,8 @@ public class GameController {
 
     @PostMapping("/play")
     public String playGame(@RequestParam String userChoice) {
+        GameElement userElement = GameElement.valueOf(userChoice);
+        basicGameService.setUserChoice(userElement);
         return "redirect:/result";
     }
 }

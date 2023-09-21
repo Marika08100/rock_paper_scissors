@@ -8,6 +8,9 @@ import java.util.Random;
 
 @Service
 public class BasicGameService implements GameService {
+    public GameElement userChoice;
+
+
     @Override
     public String getUserChoice() {
         return "rock";
@@ -38,4 +41,10 @@ public class BasicGameService implements GameService {
         int randomIndex = random.nextInt(GameElement.values().length);
         return GameElement.values()[randomIndex];
     }
+
+    public void setUserChoice(GameElement userChoice) {
+        this.userChoice = userChoice;
+    }
+
+
 }
