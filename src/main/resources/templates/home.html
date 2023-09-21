@@ -15,7 +15,7 @@
 </head>
 <body>
 <h1>Kő-Papír-Olló Játék</h1>
-<form action="/play" method="post">
+<form th:action="@{/play}" method="post">
     <label>Válassz egy lehetőséget:</label>
     <button class="game-button" type="submit" name="userChoice" value="ROCK" style="background-image: url('https://nationaltoday.com/wp-content/uploads/2021/08/National-Pet-Rock-Day.jpg');"></button>
     <button class="game-button" type="submit" name="userChoice" value="PAPER" style="background-image: url('https://c02.purpledshub.com/uploads/sites/41/2019/09/GettyImages-1128879610-c-fbbc77f.jpg');"></button>

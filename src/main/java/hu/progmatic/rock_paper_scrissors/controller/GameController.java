@@ -9,19 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GameController {
     private final GameService basicGameService;
 
     @GetMapping("/home")
-    public String getHome(Model model, String userChoice) {
-        GameElement userElement = GameElement.valueOf(userChoice);
-        GameElement computerElement = basicGameService.generateComputerChoice();
-        GameResult gameResult = basicGameService.determineWinner(userElement, computerElement);
-        model.addAttribute("userChoice", userElement.getDisplayName());
-        model.addAttribute("computerChoice", computerElement.getDisplayName());
-        model.addAttribute("result", gameResult.getMessage());
+    public String getHome() {
         return "home";
     }
 
@@ -32,13 +27,18 @@ public class GameController {
     }
 
     @GetMapping("/result")
-    public String showResult() {
+    public String showResult(Model model, String userChoice) {
+        GameElement userElement = GameElement.valueOf(userChoice);
+        GameElement computerElement = basicGameService.generateComputerChoice();
+        GameResult gameResult = basicGameService.determineWinner(userElement, computerElement);
+        model.addAttribute("userChoice", userElement.getDisplayName());
+        model.addAttribute("computerChoice", computerElement.getDisplayName());
+        model.addAttribute("result", gameResult.getMessage());
         return "result";
     }
 
     @PostMapping("/play")
-    public String playGame(String userChoice, Model model) {
-        BasicGameService basicGameService1 = new BasicGameService();
+    public String playGame(@RequestParam String userChoice) {
         return "redirect:/result";
     }
 }
